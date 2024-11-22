@@ -30,9 +30,10 @@ mv ./rawdata ./data/raw
 ls ./data/raw
 
 # 4. In ./data/processed, create the following directories: server_logs, user_logs, and event_logs
-
-mkdir .data/processed
-mkdir server_log user_logs event_logs
+mkdir ./data/processed
+mkdir ./data/processed/server_logs
+mkdir ./data/processed/user_logs 
+mkdir ./data/processed/event_logs
 
 # 5. Copy all server log files (files with "server" in the name AND a .log extension) from ./data/raw to ./data/processed/server_logs
 cp ./data/raw/*server*.log ./data/processed/server_logs
@@ -43,16 +44,14 @@ cp ./data/raw/*event*.log ./data/processed/event_logs
 
 # 7. For user privacy, remove all files containing IP addresses (files with "ipaddr" in the filename) from ./data/raw and ./data/processed/user_logs
 cd ./data/raw
-rm -i *ipaddr*
-
-
+rm *ipaddr*
 cd ./data/processed/user_logs
-rm -i *ipaddr*
+rm *ipaddr*
 
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
 cd data
 touch inventory.txt
-ls ./data/processed/* >> ./data/processed/inventory.txt
+ls ./data/processed/* >>./data/inventory.txt
 
 
 ###########################################
